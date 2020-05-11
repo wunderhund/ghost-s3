@@ -4,11 +4,12 @@ Repo for storing a Dockerfile that runs the Ghost CMS with an S3 storage adapter
 ## Intro:
 The official Ghost Docker image, available from [here](https://hub.docker.com/_/ghost), doesn't come with the ability to connect to AWS S3 storage built-in. This Dockerfile installs [ghost-storage-adapter-s3](https://github.com/colinmeinke/ghost-storage-adapter-s3), which allows Ghost to connect to an S3 bucket for storing its `content/` folder. This is especially useful for those building a custom frontend with Ghost as the backend CMS.
 
-## To Use:
+## Things You Will Need:
 This project uses [Docker](https://docs.docker.com/get-docker/).
 
 You will need an AWS S3 bucket and an IAM user with permissions to use that bucket. Instructions for setting up your S3 bucket and IAM user can be found [here](https://github.com/colinmeinke/ghost-storage-adapter-s3#aws-configuration).
 
+## To Use:
 I've put this image up [on Dockerhub](https://hub.docker.com/repository/docker/wunderhund/ghost-s3), so you can pull it with: 
 ```
 docker pull wunderhund/ghost-s3
