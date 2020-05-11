@@ -1,5 +1,5 @@
 # ghost-s3
-Repo for storing a Dockerfile that runs the Ghost CMS with an S3 storage adapter installed.
+A Docker image that runs the Ghost CMS with an S3 storage adapter installed.
 
 ## Intro:
 The official Ghost Docker image, available from [here](https://hub.docker.com/_/ghost), doesn't come with the ability to connect to AWS S3 storage built-in. This Dockerfile installs [ghost-storage-adapter-s3](https://github.com/colinmeinke/ghost-storage-adapter-s3), which allows Ghost to connect to an S3 bucket for storing its `content/` folder. This is especially useful for those building a custom frontend with Ghost as the backend CMS.
@@ -31,5 +31,5 @@ I've also provided a sample docker-compose for running Ghost with S3 and mysql:
 * Save the changes to `docker-compose.yml` and then run:
 `docker-compose up --build`.
 
-Getting this working was a little frustrating, so I figured I'd publish the results for everyone's convenience. The problem is that the `ghost-storage-adapter-s3` install instructions specify it neds to be moved to the `content/` directory, but the `storage__active` environment variable tells Ghost to look for that directory in S3, which it can't reach without the adapter! Special thanks to @mason for figuring out the trick of putting the adapter in the `content.orig/` directory instead:
+Getting this working was a little frustrating, so I figured I'd publish the results for everyone's convenience. The problem is that the `ghost-storage-adapter-s3` install instructions specify it neds to be moved to the `content/` directory, but the `storage__active` environment variable tells Ghost to look for that directory in S3, which it can't reach without the adapter! Special thanks to [mason](https://github.com/mason) for figuring out the trick of putting the adapter in the `content.orig/` directory instead:
 https://github.com/docker-library/ghost/issues/195#issuecomment-604754501
